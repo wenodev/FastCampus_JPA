@@ -36,12 +36,10 @@ public class User {
     @NonNull
     private String email;
 
-    @CreatedDate
-    @Column(columnDefinition = "datetime(6) default now(6) comment '생성시간'", nullable = false, updatable = false)
+    @Column
     private LocalDateTime createdAt;
 
-    @LastModifiedDate
-    @Column(columnDefinition = "datetime(6) default now(6) comment '수정시간'", nullable = false)
+    @Column
     private LocalDateTime updatedAt;
 
 }
