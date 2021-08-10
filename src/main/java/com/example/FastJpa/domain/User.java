@@ -10,6 +10,8 @@ import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -32,6 +34,9 @@ public class User {
 
     @NonNull
     private String email;
+
+    @Enumerated(value = EnumType.STRING)
+    private Gender gender;
 
     @Column
     private LocalDateTime createdAt;

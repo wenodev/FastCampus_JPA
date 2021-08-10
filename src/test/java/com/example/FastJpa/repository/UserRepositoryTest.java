@@ -1,5 +1,7 @@
 package com.example.FastJpa.repository;
 
+import com.example.FastJpa.domain.Gender;
+import com.example.FastJpa.domain.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -120,6 +122,16 @@ class UserRepositoryTest {
         System.out.println("findAllWithPaging : " + userRepository.findAll(PageRequest.of(0, 2, Sort.by(Order.desc("id")))).getTotalPages());
         System.out.println("findAllWithPaging : " + userRepository.findAll(PageRequest.of(1, 2)));
         userRepository.findAll(PageRequest.of(1, 2)).forEach(System.out::println);
+    }
+
+    @Test
+    void test_Enum(){
+        User user = userRepository.findById(1L).orElseThrow(RuntimeException::new);
+        System.out.println(user);
+        user.setGender(Gender.FEMALE);
+        userRepository.save(user);
+
+        System.out.println(userRepository.findById(1L).orElseThrow(RuntimeException::new));
     }
 
 }
