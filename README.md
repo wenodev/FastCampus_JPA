@@ -51,6 +51,7 @@ yourRepository.findAll(Sort.by(Direction.DESC), "[원하는 column]");
 - 동등성 비교 equals()
 - FindByAfter는 초과 FindByGreatererThanEqual은 이상
 - FindById(id, Sort.by(Order.desc(id))) 형태로 정렬할 수 있다
+- EnumType을 컬럼을 사용할대는 @Enumerated를 사용하고 Stirng 으로 사용할 경우 value = EnumType.STRING 을 추가한다.
 
 # Ch4
 
