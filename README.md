@@ -41,3 +41,19 @@ yourRepository.findAll(Sort.by(Direction.DESC), "[원하는 column]");
 - Paging 처리
     - FindAll(Pagerequest.of(0,3))의 형태로 요청한다.
     - Page<User> 형태로 담아 다양한 정보를 얻을 수 있다.
+- Save 메소드를 실행하면 저장될때가 있고 수정될 때가 있다. 이는 sava메소드 내에 isNew라는 메소드가 있고 id가 있는지 판별해준다. id가없다면 저장, 있다면 수정을 진행한다.
+	
+# Ch3
+
+- Find,get,stream 모두 조회하는 쿼리 메소드이다
+- findTop2 로 시작하면 limit이 실행되서 상위 2개의 컬럼이 리턴된다.
+- 동일성 비교 ==
+- 동등성 비교 equals()
+- FindByAfter는 초과 FindByGreatererThanEqual은 이상
+- FindById(id, Sort.by(Order.desc(id))) 형태로 정렬할 수 있다
+
+# Ch4
+
+- @Table의 index 속성이 있어서 사용할 수 있지만 실제 Db에 적용되지 않기때문에 사용하디 않는거류추천
+- Enum 타입은 꼭 @Enumerate를 사용해서 스트링으로 사용해야한다.
+- Page, PageRquest, Pageable, Sort, Order
