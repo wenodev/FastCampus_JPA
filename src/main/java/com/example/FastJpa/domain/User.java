@@ -3,28 +3,32 @@ package com.example.FastJpa.domain;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.time.LocalDateTime;
 
+
+
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
-@ToString
 @Builder
 @Entity
-public class User {
+public class User extends BaseEntity{
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -38,10 +42,7 @@ public class User {
     @Enumerated(value = EnumType.STRING)
     private Gender gender;
 
-    @Column
-    private LocalDateTime createdAt;
-
-    @Column
-    private LocalDateTime updatedAt;
-
 }
+
+
+

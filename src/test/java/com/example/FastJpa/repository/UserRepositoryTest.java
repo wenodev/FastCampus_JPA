@@ -2,6 +2,7 @@ package com.example.FastJpa.repository;
 
 import com.example.FastJpa.domain.Gender;
 import com.example.FastJpa.domain.User;
+import org.h2.engine.UserBuilder;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -128,10 +129,19 @@ class UserRepositoryTest {
     void test_Enum(){
         User user = userRepository.findById(1L).orElseThrow(RuntimeException::new);
         System.out.println(user);
-        user.setGender(Gender.FEMALE);
+//        user.setGender(Gender.FEMALE);
         userRepository.save(user);
 
         System.out.println(userRepository.findById(1L).orElseThrow(RuntimeException::new));
+    }
+
+    @Test
+    void test_Listener(){
+        userRepository.save(User.builder()
+                        .email("member6")
+                        .name("member6")
+                        .build());
+        userRepository.findAll().forEach(System.out::println);
     }
 
 }
