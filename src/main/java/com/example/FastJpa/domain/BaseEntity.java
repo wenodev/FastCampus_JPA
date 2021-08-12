@@ -14,7 +14,6 @@ import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
 @ToString
-@Setter
 @Getter
 @MappedSuperclass
 @EntityListeners(value = AuditingEntityListener.class)
