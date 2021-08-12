@@ -2,6 +2,7 @@ package com.example.FastJpa.domain;
 
 
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -13,6 +14,7 @@ import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
 @ToString
+@Setter
 @Getter
 @MappedSuperclass
 @EntityListeners(value = AuditingEntityListener.class)

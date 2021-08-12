@@ -1,8 +1,6 @@
 package com.example.FastJpa.repository;
 
-import com.example.FastJpa.domain.Gender;
 import com.example.FastJpa.domain.User;
-import org.h2.engine.UserBuilder;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

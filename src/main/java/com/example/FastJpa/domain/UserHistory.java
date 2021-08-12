@@ -1,7 +1,9 @@
 package com.example.FastJpa.domain;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -11,12 +13,15 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
-@Entity
-@NoArgsConstructor
-@Data
+@Builder
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
 public class UserHistory extends BaseEntity{
 
     @Id
@@ -30,4 +35,7 @@ public class UserHistory extends BaseEntity{
     @Enumerated(value = EnumType.STRING)
     private Gender gender;
 
+    @ManyToOne
+    @ToString.Exclude
+    private User user;
 }
