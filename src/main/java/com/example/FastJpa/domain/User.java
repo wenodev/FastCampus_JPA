@@ -51,6 +51,3 @@ public class User extends BaseEntity{
     private List<UserHistory> userHistories = new ArrayList<>();
 
 }
-
-
-
