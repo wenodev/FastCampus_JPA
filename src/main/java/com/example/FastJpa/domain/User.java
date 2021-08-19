@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.Entity;
@@ -26,10 +27,11 @@ import java.util.List;
 @EntityListeners(value = { UserEntityListener.class })
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
+@Setter
 @Getter
-@NoArgsConstructor
-@AllArgsConstructor
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class User extends BaseEntity{
     @Id

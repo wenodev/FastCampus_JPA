@@ -28,17 +28,10 @@ class BookReviewInfoRepositoryTest {
                         .averageReviewScore(1.0F)
                         .build());
 
-//        Book newBook = bookRepository.save(Book.builder()
-//                .name("dummy-book-name-2")
-//                .bookReviewInfo(bookReviewInfo)
-//                .build());
 
-//        bookReviewInfoRepository.findAll();
-//        bookRepository.findAll();
 
-        System.out.println(">>>>>1");
         Book newBook = bookReviewInfoRepository.findById(1L).orElseThrow(RuntimeException::new).getBook();
-        System.out.println(">>>>>2");
+
         newBook.setName("name change");
     }
 }

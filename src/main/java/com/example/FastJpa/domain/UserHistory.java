@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.Entity;
@@ -15,10 +16,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-@Builder
+
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
+@Setter
 @Getter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -36,6 +39,5 @@ public class UserHistory extends BaseEntity{
     private Gender gender;
 
     @ManyToOne
-    @ToString.Exclude
     private User user;
 }
