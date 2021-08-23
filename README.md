@@ -58,3 +58,15 @@ yourRepository.findAll(Sort.by(Direction.DESC), "[원하는 column]");
 - @Table의 index 속성이 있어서 사용할 수 있지만 실제 Db에 적용되지 않기때문에 사용하디 않는거류추천
 - Enum 타입은 꼭 @Enumerate를 사용해서 스트링으로 사용해야한다.
 - Page, PageRquest, Pageable, Sort, Order
+	
+# CH5
+- MappedSuperclass를 붙인 baseEntity 만들어 날짜가 필요한 클래스가 상속받을 수 있도록한다.
+
+# CH6
+## OneToOne
+- optional
+    - true : left outer join 실행된다.
+    - fasle : left inner join 실행된다.
+- fetch
+    - default는 EAGER
+    - fetch = FetchType.LAZY 로 설정하면 필요할때 join이 실행된다.
