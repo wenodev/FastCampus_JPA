@@ -4,7 +4,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.transaction.annotation.Transactional;
 
 
 /*
@@ -16,15 +15,15 @@ import org.springframework.transaction.annotation.Transactional;
 - 상황에 알맞게 castacde 와 option을 활용하여 편하게 사용하면된다.
  */
 @SpringBootTest
-class FooOneTest {
+class FooOneUniRepositoryTest {
 
     @Autowired
-    private FooOneRepository fooOneRepository;
+    private FooOneUniRepository fooOneRepository;
 
     @Autowired
-    private FooTwoRepository fooTwoRepository;
+    private FooTwoUniRepository fooTwoRepository;
 
-    private FooOne fooOne;
+    private FooOneUni fooOne;
 
     /*
     - FooOne에  @OneToOne만 붙인 경우
@@ -36,11 +35,11 @@ class FooOneTest {
     void test_save(){
         System.out.println(">>> save");
 
-        FooTwo fooTwo = fooTwoRepository.save(FooTwo.builder()
+        FooTwoUni fooTwo = fooTwoRepository.save(FooTwoUni.builder()
                 .name("foo two")
                 .build());
 
-        fooOne = fooOneRepository.save(FooOne.builder()
+        fooOne = fooOneRepository.save(FooOneUni.builder()
                 .name("foo one")
                 .fooTwo(fooTwo)
                 .build());
@@ -77,7 +76,7 @@ class FooOneTest {
         fooOneRepository.save(fooOne);
 
         System.out.println(">>> update2");
-        fooOne.setFooTwo(FooTwo.builder()
+        fooOne.setFooTwo(FooTwoUni.builder()
                         .name("fooTwoname-two")
                 .build());
         fooOneRepository.save(fooOne);

@@ -18,7 +18,7 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class FooTwo {
+public class FooTwoUni {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
