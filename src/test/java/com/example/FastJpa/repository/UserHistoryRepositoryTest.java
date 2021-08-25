@@ -18,30 +18,30 @@ class UserHistoryRepositoryTest {
     @Test
     void test_printAll(){
         System.out.println("=====0=====");
-        userRepository.save(User.builder().name("name").email("email").gender(Gender.MALE).build());
-
-        System.out.println("=====1=====");
-        System.out.println(userHistoryRepository.findAll());
-
-        System.out.println("=====1.5=====");
-        System.out.println(userHistoryRepository.findAll().size());
-
-        System.out.println("=====2=====");
-        User user = userRepository.findById(1L).orElseThrow(RuntimeException::new);
-        user.setName("updatedName");
-        user.setEmail("updatedEmail");
-
-        System.out.println("=====3=====");
-        userRepository.save(user);
-
-        System.out.println("=====4=====");
-        userRepository.save(User.builder().name("name2").email("email2").gender(Gender.MALE).build());
-
-        System.out.println("=====5=====");
-        System.out.println(userRepository.findAll());
-
-        System.out.println("=====6=====");
-//        System.out.println(user.getUserHistories().get(0));
+        userRepository.findAll().forEach(System.out::println);
+//        userRepository.save(User.builder().name("name").email("email").gender(Gender.MALE).build());
+//
+//        System.out.println("=====1=====");
+//        System.out.println(userHistoryRepository.findAll());
+//
+//        System.out.println("=====1.5=====");
+//        System.out.println(userHistoryRepository.findAll().size());
+//
+//        System.out.println("=====2=====");
+//        User user = userRepository.findById(1L).orElseThrow(RuntimeException::new);
+//        user.setName("updatedName");
+//        user.setEmail("updatedEmail");
+//
+//        System.out.println("=====3=====");
+//        userRepository.save(user);
+//
+//        System.out.println("=====4=====");
+//        userRepository.save(User.builder().name("name2").email("email2").gender(Gender.MALE).build());
+//
+//        System.out.println("=====5=====");
+//        System.out.println(userRepository.findAll());
+//
+//        System.out.println("=====6=====");
     }
 
     @Test
