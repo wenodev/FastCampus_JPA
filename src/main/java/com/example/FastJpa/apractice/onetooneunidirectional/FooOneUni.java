@@ -28,6 +28,6 @@ public class FooOneUni {
     @Column
     private String name;
 
-    @OneToOne(cascade = CascadeType.REMOVE)
+    @OneToOne(cascade = CascadeType.REMOVE) // fk 생성됨
     private FooTwoUni fooTwo;
 }

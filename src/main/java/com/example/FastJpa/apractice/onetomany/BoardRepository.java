@@ -1,4 +1,4 @@
-package com.example.FastJpa.apractice.onetomanyunidirectional;
+package com.example.FastJpa.apractice.onetomany;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

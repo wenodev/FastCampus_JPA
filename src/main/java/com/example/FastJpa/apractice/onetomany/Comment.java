@@ -1,4 +1,4 @@
-package com.example.FastJpa.apractice.onetomanyunidirectional;
+package com.example.FastJpa.apractice.onetomany;
 
 
 import lombok.AllArgsConstructor;
@@ -13,6 +13,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @ToString
 @Setter
@@ -28,4 +30,8 @@ public class Comment {
 
     @Column
     private String content;
+
+    @ManyToOne
+    @JoinColumn(name = "board_id") // JoinColumn을 설정하지 않으면 board_comment 라는 중간 테이블이 생성된다.
+    private Board board;
 }
