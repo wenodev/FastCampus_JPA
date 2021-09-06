@@ -6,7 +6,6 @@ import com.example.FastJpa.domain.User;
 import com.example.FastJpa.domain.UserHistory;
 import com.example.FastJpa.repository.UserHistoryRepository;
 import com.example.FastJpa.repository.UserRepository;
-import com.example.FastJpa.support.BeanUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
