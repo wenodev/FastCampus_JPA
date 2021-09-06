@@ -47,6 +47,8 @@ public class User extends BaseEntity{
     @Enumerated(value = EnumType.STRING)
     private Gender gender;
 
+    private Address homeAddress;
+
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", insertable = false, updatable = false)
     @ToString.Exclude
