@@ -33,7 +33,6 @@ class UserServiceTest {
                 .homeAddress(homeAddress)
                 .build();
 
-
         UserHistory createUserHistory = UserHistory.builder()
                 .id(1L)
                 .name("name")
@@ -41,11 +40,9 @@ class UserServiceTest {
                 .user(createUser)
                 .build();
 
-
         //given
         given(userRepository.save(any(User.class))).willReturn(createUser);
         given(userHistoryRepository.save(any(UserHistory.class))).willReturn(createUserHistory);
-
 
         //when
         createUser = userService.create(createUser);
