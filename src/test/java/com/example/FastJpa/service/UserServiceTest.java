@@ -7,6 +7,7 @@ import com.example.FastJpa.domain.UserHistory;
 import com.example.FastJpa.repository.UserHistoryRepository;
 import com.example.FastJpa.repository.UserRepository;
 import com.example.FastJpa.support.BeanUtils;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -20,20 +21,25 @@ class UserServiceTest {
     private UserHistoryRepository userHistoryRepository = mock(UserHistoryRepository.class);
     private UserService userService = new UserService(userRepository);
 
-    @Test
-    void save_user(){
-        Address homeAddress = Address.builder()
+    private Address createHomeAddress;
+    private User createUser;
+    private UserHistory createUserHistory;
+
+    @BeforeEach
+    void setUp(){
+
+        createHomeAddress = Address.builder()
                 .city("home-city")
                 .build();
 
-        User createUser = User.builder()
+        createUser = User.builder()
                 .id(1L)
                 .name("name")
                 .gender(Gender.MALE)
-                .homeAddress(homeAddress)
+                .homeAddress(createHomeAddress)
                 .build();
 
-        UserHistory createUserHistory = UserHistory.builder()
+        createUserHistory = UserHistory.builder()
                 .id(1L)
                 .name("name")
                 .gender(Gender.MALE)
@@ -44,11 +50,13 @@ class UserServiceTest {
         given(userRepository.save(any(User.class))).willReturn(createUser);
         given(userHistoryRepository.save(any(UserHistory.class))).willReturn(createUserHistory);
 
-        //when
+    }
+
+    @Test
+    void save_user(){
         createUser = userService.create(createUser);
         pre_post(createUser);
 
-        //then
         assertThat(createUser.getName()).isEqualTo("name");
         assertThat(createUser.getGender()).isEqualTo(Gender.MALE);
         assertThat(createUser.getHomeAddress().getCity()).isEqualTo("home-city");
