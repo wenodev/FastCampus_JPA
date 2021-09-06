@@ -6,6 +6,7 @@ import com.example.FastJpa.domain.User;
 import com.example.FastJpa.domain.UserHistory;
 import com.example.FastJpa.repository.UserHistoryRepository;
 import com.example.FastJpa.repository.UserRepository;
+import com.example.FastJpa.support.BeanUtils;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -45,6 +46,7 @@ class UserServiceTest {
 
         //when
         createUser = userService.create(createUser);
+        pre_post(createUser);
 
         //then
         assertThat(createUser.getName()).isEqualTo("name");
@@ -55,6 +57,14 @@ class UserServiceTest {
         assertThat(createUserHistory.getGender()).isEqualTo(Gender.MALE);
     }
 
-
+    void pre_post(Object o){
+        User user = (User) o;
+        userHistoryRepository.save(
+                UserHistory.builder()
+                        .email(user.getEmail())
+                        .name(user.getName())
+                        .user(user)
+                        .build());
+    }
 
 }
