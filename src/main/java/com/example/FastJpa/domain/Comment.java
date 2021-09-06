@@ -7,6 +7,8 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -31,16 +33,11 @@ public class Comment extends BaseEntity{
 
     private String comment;
 
-    @JoinColumn(name = "review_ID")
     @ManyToOne
     @ToString.Exclude
     private Review review;
 
     @Column(columnDefinition = "datetime(6) default now(6)")
     private LocalDateTime commentedAt;
-
-    public void setReview(Review review) {
-        this.review = review;
-    }
 
 }
