@@ -42,6 +42,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 //
 //
 //		- cascade remove로 설정하면 같이 지워진다.
+
+//@ToString을 사용할때 순환참조가 발생한다면 둘 중 한곳에 exclude를 해야한다.
 @SpringBootTest
 class FastJpaApplicationTests {
 
