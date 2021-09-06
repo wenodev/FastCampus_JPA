@@ -23,7 +23,7 @@ import javax.persistence.ManyToOne;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Comment {
+public class CommentTest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

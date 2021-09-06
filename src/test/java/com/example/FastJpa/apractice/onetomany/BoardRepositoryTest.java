@@ -20,17 +20,17 @@ class BoardRepositoryTest {
     private BoardRepository boardRepository;
 
     @Autowired
-    private CommentRepository commentRepository;
+    private CommentTestRepository commentTestRepository;
 
     private Board newBoard;
 
     @BeforeEach
     void test_save(){
-        List<Comment> comments = new ArrayList<>();
-        comments.add(Comment.builder()
+        List<CommentTest> commentTests = new ArrayList<>();
+        commentTests.add(CommentTest.builder()
                 .content("comment_content_1")
                 .build());
-        comments.add(Comment.builder()
+        commentTests.add(CommentTest.builder()
                 .content("comment_content_2")
                 .build());
 
@@ -38,31 +38,31 @@ class BoardRepositoryTest {
                 Board.builder()
                         .title("board_title")
                         .content("board_content")
-                        .comments(comments)
+                        .commentTests(commentTests)
                         .build());
     }
 
     @Test
     void test_update_comment(){
-        newBoard.getComments().get(0).setContent("update_comment_content");
+        newBoard.getCommentTests().get(0).setContent("update_comment_content");
         boardRepository.save(newBoard);
 
-        assertThat(newBoard.getComments().get(0).getContent()).isEqualTo("update_comment_content");
+        assertThat(newBoard.getCommentTests().get(0).getContent()).isEqualTo("update_comment_content");
     }
 
     @Test
     void test_add_comment(){
-        Comment comment = commentRepository.save(Comment.builder()
+        CommentTest commentTest = commentTestRepository.save(CommentTest.builder()
                 .content("add_comment_content")
                 .build());
 
-        newBoard.getComments().add(comment);
+        newBoard.getCommentTests().add(commentTest);
     }
 
     @Test
     void test_select_comment(){
-        List<Comment> comments = boardRepository.findById(1L).orElseThrow(RuntimeException::new).getComments();
-        assertThat(comments.size()).isEqualTo(2);
+        List<CommentTest> commentTests = boardRepository.findById(1L).orElseThrow(RuntimeException::new).getCommentTests();
+        assertThat(commentTests.size()).isEqualTo(2);
     }
 
     @Test
