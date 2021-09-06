@@ -17,7 +17,6 @@ class UserServiceTest {
 
     private UserRepository userRepository = mock(UserRepository.class);
     private UserHistoryRepository userHistoryRepository = mock(UserHistoryRepository.class);
-
     private UserService userService = new UserService(userRepository);
 
     @Test
