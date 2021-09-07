@@ -52,7 +52,7 @@ class UserServiceTest {
     }
 
     @Test
-    void save_user(){
+    void test_create(){
         createUser = userService.create(createUser);
         pre_post(createUser);
 
