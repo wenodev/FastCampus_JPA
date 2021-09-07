@@ -17,4 +17,8 @@ public class UserService {
     public User create(User user) {
         return userRepository.save(user);
     }
+
+    public User detail(Long id) {
+        return userRepository.findById(id).orElseThrow(RuntimeException::new);
+    }
 }
