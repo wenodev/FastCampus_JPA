@@ -25,7 +25,6 @@ import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-@Setter
 @Getter
 @Builder
 @Data
